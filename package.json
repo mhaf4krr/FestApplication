@@ -1,0 +1,11 @@
+{
+  "name": "funfest19",
+  "version": "1.0.0",
+  "description": "funfest19 is a tech-cultural event organised by department of computer science and engineering , islamic university.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mufti hyder ali",
+  "license": "ISC"
+}
