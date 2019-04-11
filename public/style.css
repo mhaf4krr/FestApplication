@@ -2746,3 +2746,7 @@ input:required {
 
 /*# sourceMappingURL=style.css.map */
 
+.bg-slider {
+  background-color: #0c0c0c86;
+  font-size: 20px;
+}
