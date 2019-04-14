@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Volunteer Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/login/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/login/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/login/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-55">
+						v-Login
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Valid Phone Number is Required">
+						<input class="input100" type="number" name="number" id="phone" placeholder="Phone Number">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-envelope"></span>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password"  id="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-lock"></span>
+						</span>
+					</div>
+
+					
+					
+					<div class="container-login100-form-btn p-t-25">
+						<button class="login100-form-btn" id="submitBtn">
+							Login
+						</button>
+					</div>
+
+					<div>
+						<span id="msg"></span>
+					</div>
+
+					
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/login/vendor/bootstrap/js/popper.js"></script>
+	<script src="/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/login/js/main.js"></script>
+	<script>
+	
+	document.querySelector("#submitBtn").addEventListener("click",function(e){
+		e.preventDefault();
+		console.log("Hello")
+		let xhr = new XMLHttpRequest();
+
+        xhr.open('POST','/api/login',true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify({phone:document.querySelector('#phone').value,
+        password:document.querySelector('#password').value}))
+
+
+
+		xhr.onload = function(){
+			let response = JSON.parse(xhr.response);
+			console.log(response);
+			
+
+			if(response.verified){
+				localStorage.setItem("x-auth-verified",response.verified);
+				localStorage.setItem("v-info",JSON.stringify(response.volunteer));
+				document.querySelector("#msg").innerHTML="<p style='color:green'> You have been verified, close the TAB and start scanning !</p>"
+			}
+
+			else {
+				document.querySelector("#msg").innerHTML="<p style='color:red'> Sorry, details are a NO MATCH! </p>"
+				localStorage.removeItem("x-auth-verified");
+				localStorage.removeItem("v-info")
+			}
+
+
+
+		}
+
+	})
+
+	</script>
+
+</body>
+</html>

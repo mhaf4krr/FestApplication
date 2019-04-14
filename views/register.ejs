@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+
+    <!-- Title Page-->
+    <title>Get Pass | Registration</title>
+
+    <!-- Icons font CSS-->
+    <link href="/registration/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="/registration/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="/registration/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="/registration/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="/registration/css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Register for the Event</h2>
+                    <div style="margin:10px;color:green;font-size:16px;padding-top:5px;"> <%= msg %> </div>
+
+                    <!-- FORM METHOD -->
+                    
+                    <form method="POST" action="/registration/register">
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Name" name="name" required>
+                        </div>
+                      
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="gender" required>
+                                    <option disabled="disabled" selected="selected">Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="email" placeholder="Email" name="email" required>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Phone" name="phone" required>
+                        </div>
+
+
+                        <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="university" required>
+                                        <option disabled="disabled" selected="selected" >Select your Institution</option>
+                                        <option value="ISLAMIC_UNIVERSITY">Islamic University of Science and Technology</option>
+                                        <option value="NIT_SRI">National Institute of Technology Srinagar</option>
+                                        <option value="SSM">SSM College of Engineering</option>
+                                        <option value="UOK">University of Kashmir</option>
+                                        <option value="CUOK">Central University of Kashmir</option>
+                                        <option value="OTHER">OTHER | NOT MENTIONED</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="department" required>
+                                                <option disabled="disabled" selected="selected" >Select your Department</option>
+                                                <option value="CSE">Computer Science and Engineering</option>
+                                                <option value="EE">Electrical Engineering</option>
+                                                <option value="CE">Civil Engineering</option>
+                                                <option value="ME">Mechanical Engineering</option>
+                                                <option value="ECE">Electronics Engineering</option>
+                                                <option value="FT">Food Technology</option>
+                                                <option value="CS">Computer Science</option>
+                                                <option value="Humanities-and-SocialSciences">School of Humanities and Social Sciences</option>
+                                                <option value="Management-Studies">School of Management Studies</option>
+                                                <option value="School-of-Sciences">School of Sciences</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                            </div>
+
+                            <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="semester" required>
+                                                <option disabled="disabled" selected="selected" >Select your Semester</option>
+                                                <option value="1">First Semester</option>
+                                                <option value="2">Second Semester</option>
+                                                <option value="3">Third Semester</option>
+                                                <option value="4">Fourth Semester</option>
+                                                <option value="5">Fifth Semester</option>
+                                                <option value="6">Sixth Semester</option>
+                                                <option value="7">Seventh Semester</option>
+                                                <option value="8">Eight Semester</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                            </div>
+
+
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="passChoice" id="passChoice" onchange="displaySingleEvents();" required>
+                                    <option disabled="disabled" selected="selected" >Choose Your Pass</option>
+                                    <option value="single-pass">Single Event Pass</option>
+                                    <option value="gaming-pass">Gaming Pass</option>
+                                    <option value="squad-pass">Squad Gaming Pass</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+
+                        
+
+                        <div id = "single-event-selection" class="input-group" style="display: none">
+                            <p style="color:#ccc;font-size: 16px;">Choose your Events</p>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="single_event" multiple class="form-control">
+                                    
+                                    <option value="PUBG-SOLO">PUBG Solo</option>
+                                    <option value="TREASURE-HUNT">Treasure Hunt</option>
+                                    <option value="CODE-RELAY">Code Relay</option>
+                                    <option value="HOUR-OF-CODE">Hour of Code</option>
+                                    <option value="ART-EXPRESS">Art Express</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                       
+
+                        <div class="p-t-10">
+                            <button class="btn btn--pill btn--green" type="submit">Register</button>
+                        </div>
+                    </form>
+
+                    <div style="margin-top:10px;color:green;font-size:16px;padding-top:5px;"> <%= msg %> </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="/registration/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="/registration/vendor/select2/select2.min.js"></script>
+    <script src="/registration/vendor/datepicker/moment.min.js"></script>
+    <script src="/registration/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="/registration/js/global.js"></script>
+    <script>
+      
+    function displaySingleEvents(){
+        let value = document.querySelector("#passChoice").value
+        console.log(value);
+        if(value === "single-pass"){
+            document.querySelector("#single-event-selection").style.display = "block";
+        }
+
+        else {
+            document.querySelector("#single-event-selection").style.display = "none";
+        }
+        
+    }
+    
+    
+    </script>
+
+</body>
+
+</html>
+<!-- end document-->
