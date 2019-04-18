@@ -28,6 +28,14 @@ app.get('/',(req,res)=>{
 
 
 
+/* HANDLE TEMPLATING FOR SINGLE EVENT */
+app.get("/event",(req,res)=>{
+    registration.getEventDetails(req.query.eventName,res);
+})
 
+app.post("/addEvent",(req,res)=>{
+    console.log(req.body)
+    registration.addEvent(req.body,res);
+})
 
 app.listen(80);

@@ -36,7 +36,42 @@ const passSchema = new mongoose.Schema({
 
 const PASS = mongoose.model('passes',passSchema)
 
+/* Event Template Schema */
+const eventSchema = new mongoose.Schema({
+    eventName:String,
+    eventDescription:String,
+    organizerName:String,
+    organizerImgLink:String,
+    eventImgLink:String
+})
 
+const EVENT = new mongoose.model('events',eventSchema);
+
+async function getEventDetails(event,res){
+    
+    let result = await EVENT.find({eventName:event});
+    
+    res.render("single-event",{data:result[0]})
+}
+
+/* Add an event to DB */
+async function addEvent(event,res){
+    let newEvent = new EVENT({
+        eventName:event.name,
+        eventDescription:event.description,
+        organizerName:event.organizerName,
+        organizerImgLink:event.organizerImgLink,
+        eventImgLink:event.eventImgLink
+    })
+
+    try {
+        let result = await newEvent.save()
+
+        res.send("Event has been added");
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 /* Volunteer Schema */
 
@@ -276,7 +311,6 @@ async function removeRemainingEvent(body,res){
         result[0].single_event = remainingEvents;
 
 
-        console.log(body.eve)
         let participatedEvents = result[0].eventParticipated;
         participatedEvents.push(`${body.event}`);
 
@@ -327,5 +361,7 @@ module.exports = {
     queryParticipant:queryParticipant,
     checkVolunteer:checkVolunteer,
     AcceptPayment:AcceptPayment,
-    removeRemainingEvent:removeRemainingEvent
+    removeRemainingEvent:removeRemainingEvent,
+    getEventDetails:getEventDetails,
+    addEvent:addEvent
 }

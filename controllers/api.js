@@ -36,4 +36,6 @@ router.post("/login",(req,res)=>{
 router.post("/eventParticipation",(req,res)=>{
     db.removeRemainingEvent(req.body,res);
 })
+
+
 module.exports = router;
