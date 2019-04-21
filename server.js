@@ -38,4 +38,16 @@ app.post("/addEvent",(req,res)=>{
     registration.addEvent(req.body,res);
 })
 
+app.get("/listAll",(req,res)=>{
+    let html = `/registration/register *Participant Register <br>
+    
+    /registration/vRegister *Volunteer Register <br>
+
+    /registration/details *Get all details of participation <br>
+
+    /registration/vDetails *Get cash each volunteer has accepted
+    `
+    res.send(html)
+})
+
 app.listen(80);

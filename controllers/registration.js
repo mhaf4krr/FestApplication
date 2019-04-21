@@ -84,7 +84,8 @@ const volunteerSchema = new mongoose.Schema({
     event:String,
     designation:String,
     email:String,
-    password:String
+    password:String,
+    cashAccepted:Number
 })
 
 const VOLUNTEER = new mongoose.model('volunteer',volunteerSchema);
@@ -102,7 +103,8 @@ async function addVolunteer(body,res){
         event:"toBeAssigned",
         designation:"Volunteer",
         email:body.email,
-        password:body.password
+        password:body.password,
+        cashAccepted:0
     })
     
 
@@ -184,9 +186,9 @@ async function generatePass(body,res) {
     })
         
     if(newPass.passChoice === "gaming-pass")
-        newPass.single_event = ['PUBG','COUNTER-STRIKE','FIFA-19']
+        newPass.single_event = ['PUBG','COUNTER-STRIKE']
         else if(newPass.passChoice === "squad-pass")
-        newPass.single_event = ['PUBG','COUNTER-STRIKE','FIFA-19']
+        newPass.single_event = ['PUBG','COUNTER-STRIKE']
     else if(newPass.passChoice === "single-pass"){
         
     }
@@ -280,11 +282,22 @@ async function checkIfAlreadyRegistered(body,res){
 async function AcceptPayment(body,res){
     try {
         let result = await PASS.find({phone:body.participantNumber});
-        
+
+        let volunteer = await VOLUNTEER.find({name:body.volunteer})
+
+        let cash = volunteer[0].cashAccepted;
+        cash = body.paymentAmountReceived+cash;
+
+
         result[0].paymentAcceptedVolunteer = body.volunteer;
         result[0].paymentReceived = true;
         result[0].paymentAmountReceived = body.paymentAmountReceived;
         await result[0].save();
+
+        volunteer[0].cashAccepted = cash;
+        await volunteer[0].save();
+
+
         
         
 
@@ -355,6 +368,127 @@ router.post("/vRegister",(req,res)=>{
 })
 
 
+async function getvolunteerCashDetails(res){
+    let result = await VOLUNTEER.find({});
+    
+    let html = "";
+
+    for(let i=0;i<result.length;i++){
+        html = html + `${result[i].name} has ${result[i].cashAccepted} <br> <br>`;
+    }
+
+    res.send(html);
+    
+}
+
+
+router.get("/vDetails",(req,res)=>{
+    getvolunteerCashDetails(res)
+})
+
+
+/* GET ACCOUNT OF ALL DETAILS */
+async function getTotalRegistered(res){
+    /* GAMING REG */
+    let PUBGSQ=0;
+    let PUBGSOLO=0;
+    let CS=0;
+
+    /* CODING REG */
+    let HOC=0;
+    let CR=0;
+    let CP=0;
+
+    /* FUN REG */
+    let TH=0;
+    let EXPRESS=0;
+    let SKETCH=0;
+
+    /* PASS REG */
+    let GP=0
+    let SP=0;
+    let GSP=0
+
+    let totalCashReceived = 0;
+
+    let result = await PASS.find({})
+    
+    for(let i=0 ; i<result.length ; i++){
+
+        if(result[i].passChoice === "gaming-pass"){
+            GP++;
+            CS++;
+            PUBGSQ++;
+            CR++;
+        }
+        
+
+        if(result[i].passChoice === "single-pass")
+        {
+            SP++;
+
+            if(result[i].single_event.includes("PUBG-SOLO"))
+            PUBGSOLO++;
+
+            if(result[i].single_event.includes("COUNTER-STRIKE"))
+            CS++;
+
+            if(result[i].single_event.includes("TREASURE-HUNT"))
+            TH++;
+
+            if(result[i].single_event.includes("COMPETITVE-PROGRAMMING"))
+            CP++;
+
+            if(result[i].single_event.includes("CODE-RELAY"))
+            CR++;
+
+            if(result[i].single_event.includes("HOUR-OF-CODE"))
+            HOC++;
+
+            if(result[i].single_event.includes("ART-EXPRESS"))
+            EXPRESS++;
+
+            if(result[i].single_event.includes("ART-SKETCH"))
+            SKETCH++;
+        }
+
+        if(result[i].passChoice === "squad-pass"){
+            GSP++;
+            PUBGSQ++;
+            CS++;
+        }
+
+        if(result[i].paymentReceived){
+            totalCashReceived = result[i].paymentAmountReceived
+        }
+    }
+
+    let html = `
+    <h3> TOTAL PARTICIPANTS : ${result.length} </h3>
+    <h3> TOTAL CASH RECEIVED : ${totalCashReceived} </h3>
+    <h4> Passes Details </h4>
+    <span> Single Passes : ${SP}  </span> <br>
+    <span> Squad Passes : ${GSP}  </span> <br>
+    <span> Gaming Passes : ${GP}  </span> <br> <br>
+    <h4> Event Details </h4>
+    <span> Treasure Hunt : ${TH}  </span> <br>
+    <span> Art - EXPRESS : ${EXPRESS}  </span> <br>
+    <span> Art - SKETCH : ${SKETCH}  </span> <br>
+    <br>
+    <span> COMPETITIVE PROG : ${CP}  </span> <br>
+    <span> CODING RELAY : ${CR}  </span> <br>
+    <span> HOUR OF CODE : ${HOC}  </span> <br>
+    <br>
+    <span> PUBG SQUAD : ${PUBGSQ}  </span> <br>
+    <span> PUBG SOLO : ${PUBGSOLO}  </span> <br>
+    <span> COUNTER STRIKE : ${CS}  </span> <br>`
+
+    res.send(html);
+}
+
+router.get("/details",(req,res)=>{
+    getTotalRegistered(res);
+})
 
 module.exports = {
     router:router,

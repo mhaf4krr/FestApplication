@@ -8,25 +8,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Confer - Conference Event HTML Template</title>
+    <title>Team @ Event</title>
+
+    <!-- Linking Swiper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
 
     <!-- Favicon -->
     <link rel="icon" href="./img/core-img/favicon.png">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        .swiper-container {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 260px;
+      height: auto;
+    }
+
+    .speaker-info > p {
+        color:rgb(255, 145, 0) !important;
+    }
+    </style>
 
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-    <!-- /Preloader -->
+  
 
     <!-- Header Area Start -->
-    <header class="header-area">
+    <header class="header-area" style="background-color: black;">
         <div class="classy-nav-container breakpoint-off">
             <div class="container">
                 <!-- Classy Menu -->
@@ -50,33 +67,25 @@
                         <div class="classynav">
                             <ul id="nav">
                                 <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="#">Pages</a>
+                                <li><a href="#">Navigation</a>
                                     <ul class="dropdown">
                                         <li><a href="index.html">- Home</a></li>
-                                        <li><a href="about.html">- About Us</a></li>
-                                        <li><a href="speakers.html">- Speakears</a></li>
-                                        <li><a href="schedule.html">- Schedule</a></li>
-                                        <li><a href="tickets.html">- Tickets</a></li>
-                                        <li><a href="blog.html">- Blog</a></li>
-                                        <li><a href="single-blog.html">- Single Blog</a></li>
-                                        <li><a href="contact.html">- Contact</a></li>
-                                        <li><a href="#">- Dropdown</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
+                                   
+                                        <li><a href="team.html">- Team</a></li>
+                                        <li><a href="index.html#scheduleSection">- Schedule</a></li>
+                                        <li><a href="index.html#passesSection">- Passes</a></li>
+                                        <li><a href="index.html#eventDetails">- All Events</a></li>
+                                        <li><a href="index.html#eventDetails">- Contact</a></li>
+                                        
                                     </ul>
                                 </li>
-                                <li><a href="speakers.html">Speakears</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="index.html#eventDetails">All Events</a></li>
+                                <li><a href="index.html#eventDetails">Contact</a></li>
                             </ul>
 
                             <!-- Get Tickets Button -->
-                            <a href="#" class="btn confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Get Tickets <i class="zmdi zmdi-long-arrow-right"></i></a>
+                            <a href="index.html#passesSection" class="btn confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Get Passes <i class="zmdi zmdi-long-arrow-right"></i></a>
                         </div>
                         <!-- Nav End -->
                     </div>
@@ -85,7 +94,6 @@
         </div>
     </header>
     <!-- Header Area End -->
-
     <!-- Breadcrumb Area Start -->
     <section class="breadcrumb-area bg-img bg-gradient-overlay jarallax" style="background-image: url(img/bg-img/27.jpg);">
         <div class="container h-100">
@@ -107,7 +115,7 @@
     <!-- Breadcrumb Area End -->
 
     <!-- Our Speakings Area Start -->
-    <section class="our-speaker-area section-padding-100">
+    <section class="our-speaker-area section-padding-100" style="background-color: black;">
         <div class="container">
 
             <!-- Development Team -->
@@ -115,11 +123,11 @@
                 
                 <!-- Single Speaker Area -->
                 <div class="col-12 col-sm-6 col-lg-4">
-                        <h4>Development</h4>
+                        <h4 style="color:aliceblue"> Development</h4>
                         <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
                             <!-- Thumb -->
                             <div class="speaker-single-thumb">
-                                <img src="img/team-img/12.png" alt="">
+                                <img src="img/team-img/admin.jpg" alt="">
                             </div>
                             <!-- Social Info -->
                             <div class="social-info">
@@ -131,40 +139,159 @@
                             <!-- Info -->
                             <div class="speaker-info">
                                 <h5>Mufti Hyder Ali</h5>
-                                <p>Developer and Coordinator</p>
+                                <p>Developer</p>
                             </div>
                         </div>
                     </div>
 
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-sm-12"><h4>Core Organizing Team</h4></div>
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/team-img/lanker.jpeg" alt="">
+            <div class="swiper-container">
+                    <h4 style="text-align: center;color:aliceblue">Technical Events Team</h4>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+            
+                        <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+                                <!-- Thumb -->
+                                <div class="speaker-single-thumb">
+                                    <img src="img/team-img/janBekal.jpeg" alt="">
+                                </div>
+                                <!-- Social Info -->
+                                <div class="social-info">
+                                    <a href="facebook.com/mhaf4krr"><i class="zmdi zmdi-facebook"></i></a>
+                                  
+                                </div>
+                                <!-- Info -->
+                                <div class="speaker-info">
+                                    <h5>Jan Mohammad</h5>
+                                    <p>Code Relay</p>
+                                </div>
                         </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Amir Lanker</h5>
-                            <p>Core Team</p>
-                        </div>
+            
+                  </div>
+                  <div class="swiper-slide" >
+
+                        <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+                                <!-- Thumb -->
+                                <div class="speaker-single-thumb">
+                                    <img src="img/team-img/yaseen.jpg" alt="">
+                                </div>
+                                <!-- Social Info -->
+                                <div class="social-info">
+                                    <a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                                    <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                                    <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                                    <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
+                                </div>
+                                <!-- Info -->
+                                <div class="speaker-info">
+                                    <h5>Mir Yaseen</h5>
+                                    <p>Competitive Programming</p>
+                                </div>
+                            </div>
+
+                  </div>
+                  <div class="swiper-slide" >
+
+                        <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+                                <!-- Thumb -->
+                                <div class="speaker-single-thumb">
+                                    <img src="img/team-img/admin.jpg" alt="">
+                                </div>
+                                <!-- Social Info -->
+                                <div class="social-info">
+                                    <a href="facebook.com/mhaf4krr"><i class="zmdi zmdi-facebook"></i></a>
+                                    
+                                </div>
+                                <!-- Info -->
+                                <div class="speaker-info">
+                                    <h5>Mufti Hyder Ali</h5>
+                                    <p>Hour of Code</p>
+                                </div>
+                            </div>
+
+                  </div>
+                  
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+              </div>
+   
+            
+            
+              <!-- EGAMING ORGANIZING TEAM -->
+
+
+        
+
+
+             <!-- Swiper -->
+        <div class="swiper-container">
+            <h4 style="text-align:center;color:aliceblue">eGaming Event Team</h4>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" >
+
+            <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+                    <!-- Thumb -->
+                    <div class="speaker-single-thumb">
+                        <img src="img/team-img/mohsin.jpeg" alt="">
+                    </div>
+                    <!-- Social Info -->
+                    <div class="social-info">
+                        <a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                        <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                        <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                        <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
+                    </div>
+                    <!-- Info -->
+                    <div class="speaker-info">
+                        <h5>Mohsin Farooq</h5>
+                        <p>PUBG</p>
                     </div>
                 </div>
 
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+      </div>
+      <div class="swiper-slide">
+
+            <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+                    <!-- Thumb -->
+                    <div class="speaker-single-thumb">
+                        <img src="img/team-img/raqib.jpeg" alt="">
+                    </div>
+                    <!-- Social Info -->
+                    <div class="social-info">
+                        <a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                        <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                        <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                        <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
+                    </div>
+                    <!-- Info -->
+                    <div class="speaker-info">
+                        <h5>Khan Raqib</h5>
+                        <p>PUBG</p>
+                    </div>
+                </div>    
+
+      </div>
+      
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    </div>
+
+
+    </div>
+
+
+            <!-- TREASURE ORGANIZING TEAM -->
+
+
+             <!-- Swiper -->
+        <div class="swiper-container">
+                <h4 style="text-align:center;color:aliceblue">Treasure Hunt Team</h4>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+                <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
                         <!-- Thumb -->
                         <div class="speaker-single-thumb">
                             <img src="img/team-img/umer.jpeg" alt="">
@@ -179,14 +306,14 @@
                         <!-- Info -->
                         <div class="speaker-info">
                             <h5>Umer Farooq</h5>
-                            <p>Core Team</p>
+                            <p>Treasure Hunt</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+          </div>
+          <div class="swiper-slide">
+
+                <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
                         <!-- Thumb -->
                         <div class="speaker-single-thumb">
                             <img src="img/team-img/manan.jpeg" alt="">
@@ -201,17 +328,130 @@
                         <!-- Info -->
                         <div class="speaker-info">
                             <h5>Manan</h5>
-                            <p>Core Team</p>
+                            <p>Treasure Hunt</p>
                         </div>
                     </div>
-                </div>
+          </div>
+     
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
 
-                
 
+           
+
+                 <!-- ART EVENT ORGANIZING TEAM -->
+
+
+             <!-- Swiper -->
+        <div class="swiper-container">
+                <h4 style="text-align:center;color:aliceblue">Art Event Team</h4>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" >
+
+                <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+                        <!-- Thumb -->
+                        <div class="speaker-single-thumb">
+                            <img src="img/team-img/daniyah.jpeg" alt="">
+                        </div>
+                        <!-- Social Info -->
+                        <div class="social-info">
+                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
+                        </div>
+                        <!-- Info -->
+                        <div class="speaker-info">
+                            <h5>Daniyah</h5>
+                            <p>Art - Sketch</p>
+                        </div>
+                    </div>
+
+          </div>
+          <div class="swiper-slide">
+
+                <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+                        <!-- Thumb -->
+                        <div class="speaker-single-thumb">
+                            <img src="img/team-img/umrah.jpeg" alt="">
+                        </div>
+                        <!-- Social Info -->
+                        <div class="social-info">
+                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
+                        </div>
+                        <!-- Info -->
+                        <div class="speaker-info">
+                            <h5>Umrah</h5>
+                            <p>Art - Express</p>
+                        </div>
+                    </div>    
+
+          </div>
+          
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        </div>
+
+
+        </div>
+
+
+       
+
+                 <!-- Swiper -->
+  <div class="swiper-container">
+        <h4 style="text-align: center;color:aliceblue"> Supporting Team </h4>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+
+        <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
+            <!-- Thumb -->
+            <div class="speaker-single-thumb">
+                <img src="img/team-img/sehrab.jpeg" alt="">
+            </div>
+            <!-- Social Info -->
+            <div class="social-info">
+                <a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
+            </div>
+            <!-- Info -->
+            <div class="speaker-info">
+                <h5> Sehrab </h5>
+                <p>Supporting Team</p>
             </div>
         </div>
+
+      </div>
+      <div class="swiper-slide">
+
+
+
+      </div>
+      <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/3)"></div>
+      <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/4)"></div>
+      <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/5)"></div>
+      <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/6)"></div>
+      <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/7)"></div>
+      <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/8)"></div>
+      <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/9)"></div>
+      <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/10)"></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+
     </section>
     <!-- Our Speakings Area End -->
+
 
     <!-- Footer Area Start -->
     <footer class="footer-area bg-img bg-overlay-2 section-padding-100-0">
@@ -221,10 +461,10 @@
                 <div class="row">
                     <!-- Single Footer Widget Area -->
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-60">
+                        <div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
                             <!-- Footer Logo -->
                             <a href="#" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a>
-                            <p>To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain.</p>
+                            <p>Department of Computer Science and Engineering , Islamic University Of Science and Technology</p>
 
                             <!-- Social Info -->
                             <div class="social-info">
@@ -238,70 +478,43 @@
 
                     <!-- Single Footer Widget Area -->
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-60">
+                        <div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
                             <!-- Widget Title -->
                             <h5 class="widget-title">Contact</h5>
 
                             <!-- Contact Area -->
                             <div class="footer-contact-info">
-                                <p><i class="zmdi zmdi-map"></i> 184 Main Collins Street</p>
-                                <p><i class="zmdi zmdi-phone"></i> (226) 446 9371</p>
-                                <p><i class="zmdi zmdi-email"></i> confer@gmail.com</p>
-                                <p><i class="zmdi zmdi-globe"></i> www.confer.com</p>
+                                <p><i class="zmdi zmdi-map"></i> 1- University Avenue</p>
+                                <p><i class="zmdi zmdi-phone"></i> 7006225524</p>
+                                <p><i class="zmdi zmdi-email"></i> hyderdevelops@yahoo.com</p>
+                                <p><i class="zmdi zmdi-globe"></i> www.funfest19.openode.io</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Single Footer Widget Area -->
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-60">
+                        <div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
                             <!-- Widget Title -->
-                            <h5 class="widget-title">Workshops</h5>
+                            <h5 class="widget-title">QuickNav</h5>
 
                             <!-- Footer Nav -->
                             <ul class="footer-nav">
-                                <li><a href="#">OSHA Compliance</a></li>
-                                <li><a href="#">Microsoft Excel Basics</a></li>
-                                <li><a href="#">Forum Speaker Series</a></li>
-                                <li><a href="#">Tedx Moscow Conference</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="#eventDetails">Events</a></li>
+                                <li><a href="#eventDetails">Details</a></li>
+                                
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-60">
-                            <!-- Widget Title -->
-                            <h5 class="widget-title">Gallery</h5>
-
-                            <!-- Footer Gallery -->
-                            <div class="footer-gallery">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <a href="img/bg-img/21.jpg" class="single-gallery-item"><img src="img/bg-img/21.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/22.jpg" class="single-gallery-item"><img src="img/bg-img/22.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/23.jpg" class="single-gallery-item"><img src="img/bg-img/23.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/24.jpg" class="single-gallery-item"><img src="img/bg-img/24.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/25.jpg" class="single-gallery-item"><img src="img/bg-img/25.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/26.jpg" class="single-gallery-item"><img src="img/bg-img/26.jpg" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
+
+
+ 
 
         <!-- Copywrite Area -->
         <div class="container">
@@ -311,7 +524,7 @@
                     <div class="col-12 col-md-6">
                         <div class="copywrite-text">
                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://facebook.com/mhaf4krr" target="_blank">hyder</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>
@@ -328,6 +541,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
         </div>
     </footer>
+
     <!-- Footer Area End -->
 
     <!-- **** All JS Files ***** -->
@@ -341,6 +555,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/confer.bundle.js"></script>
     <!-- Active -->
     <script src="js/default-assets/active.js"></script>
+    <!-- SWIPER JS FILES -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    
+    <script>
+     var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+    
+    </script>
 
 </body>
 
